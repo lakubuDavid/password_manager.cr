@@ -1,0 +1,26 @@
+name: password_manager
+version: 0.1.0
+
+authors:
+  - lakubuDavid <Lakubudavid@gmail.com>
+dependencies:
+  commander:
+    github: mrrooijen/commander
+    version: ~> 0.4.0
+  secrets:
+    github: faustinoaq/secrets
+  rocksdb:
+    github: maiha/rocksdb.cr
+    version: 1.2.0
+  crypto:
+    github: protoncr/crypto
+  toml-config:
+    github: maiha/toml-config.cr
+    version: ~> 0.7.0
+targets:
+  password_manager:
+    main: src/main.cr
+
+crystal: '>= 1.13.1'
+
+license: MIT

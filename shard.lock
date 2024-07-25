@@ -1,0 +1,30 @@
+version: 2.0
+shards:
+  async:
+    git: https://github.com/protoncr/async.git
+    version: 0.2.0+git.commit.364df308229e55ed7eed5dc36e1f4a53ad23b3e4
+
+  commander:
+    git: https://github.com/mrrooijen/commander.git
+    version: 0.4.0
+
+  crypto:
+    git: https://github.com/protoncr/crypto.git
+    version: 0.1.0+git.commit.d468d9e3720ef86ac76ac948c391357ab8f789e7
+
+  rocksdb:
+    git: https://github.com/maiha/rocksdb.cr.git
+    version: 1.2.0
+
+  secrets:
+    git: https://github.com/faustinoaq/secrets.git
+    version: 0.1.2
+
+  toml:
+    git: https://github.com/crystal-community/toml.cr.git
+    version: 0.8.1
+
+  toml-config:
+    git: https://github.com/maiha/toml-config.cr.git
+    version: 0.7.0
+
