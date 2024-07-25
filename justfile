@@ -7,5 +7,8 @@ default:
 run +command="" :
     crystal run {{source}} -- {{command}}
 
+debug +command="" :
+    crystal run --error-trace {{source}} -- {{command}}
+
 build: 
 	crystal build {{source}} -o {{output}}

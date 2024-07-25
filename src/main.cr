@@ -1,8 +1,12 @@
 require "commander"
 require "secrets"
 require "colorize"
+require "crypto"
+require "base64"
 
-require "../src/store.cr"
+require "./common.cr"
+require "./store.cr"
+require "./encryption.cr"
 
 VERSION = "0.1.0"
 
@@ -119,6 +123,15 @@ cli = Commander::Command.new do |cmd|
     end
   end
 
+  cmd.commands.add do |cmd|
+    cmd.use = "init"
+    cmd.short = "Initialize passman and set the master key for encrypting passwords"
+    cmd.long = cmd.short
+
+    cmd.run do |options, arguments|
+    end
+  end
+
   # clear command
   cmd.commands.add do |cmd|
     cmd.use = "clear"
@@ -134,5 +147,38 @@ cli = Commander::Command.new do |cmd|
     puts cmd.help # => Render help screen
   end
 end
+
+# random = Random.new
+
+# # 10 MB of random data + 7 bytes to show padding
+# # data = random.random_bytes(1024 + 7)
+# data = "something".bytes
+
+# key = random.random_bytes(32) # Random key
+# iv = random.random_bytes(16)  # Random iv
+
+# # Pad the data using PKCS7
+# data = Crypto::Padding.pkcs7(data, Crypto::AES::BLOCK_SIZE)
+
+# encrypted = Crypto::CBC.encrypt(to_slice(data), key, iv)
+# decrypted = Crypto::CBC.decrypt(encrypted, key, iv)
+
+# p! Base64.strict_encode(encrypted)
+# p! Base64.strict_encode(decrypted)
+# p! String.new(decrypted).strip("\a")
+
+# puts data == decrypted.to_a
+# puts data
+# puts decrypted.to_a
+
+# digest = Digest::SHA256.new("")
+# digest << Random::Secure.random_bytes(32)
+# puts digest.hexfinal
+
+# Encryption.configure("secret","iv")
+
+# something_encrypted = Encryption.encrypt(something)
+# puts something_encrypted
+# puts Encryption.decrypt(something_encrypted)
 
 Commander.run(cli, ARGV)
